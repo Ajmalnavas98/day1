@@ -1,4 +1,4 @@
-1.select Person.Person.FirstName,Person.EmailAddress.EmailAddress,Sales.Store.Name,Sales.Customer.CustomerID from Person.Person join Person.EmailAddress on Person.BusinessEntityID=EmailAddress.BusinessEntityID join Sales.Customer on Person.BusinessEntityID=Customer.PersonID join Sales.Store on Customer.StoreID=Store.BusinessEntityID where Sales.Store.Name='Bike World'; 
+﻿1.select Person.Person.FirstName,Person.EmailAddress.EmailAddress,Sales.Store.Name,Sales.Customer.CustomerID from Person.Person join Person.EmailAddress on Person.BusinessEntityID=EmailAddress.BusinessEntityID join Sales.Customer on Person.BusinessEntityID=Customer.PersonID join Sales.Store on Customer.StoreID=Store.BusinessEntityID where Sales.Store.Name='Bike World'; 
 
 Kerim	kerim0@adventure-works.com	Bike World	29809
 
@@ -127,3 +127,50 @@ order by TOT desc ;]---------->NO ANSWER
 London	434
 Paris	398
 Burien	215
+
+
+
+AdventureWorks DataWarehouse :
+1.select DimCustomer.FirstName,DimCustomer.EmailAddress,DimReseller.ResellerName from DimCustomer join DimGeography on DimCustomer.GeographyKey=DimGeography.GeographyKey join DimReseller on DimGeography.GeographyKey=DimReseller.GeographyKey where DimReseller.ResellerName='Bike World';
+
+
+2.select DimCustomer.FirstName,DimCustomer.LastName,DimReseller.ResellerName from DimCustomer join DimGeography on DimCustomer.GeographyKey=DimGeography.GeographyKey join DimReseller on DimGeography.GeographyKey=DimReseller.GeographyKey where DimGeography.City='Dallas';
+
+
+3.select count( distinct FactResellerSales.SalesOrderNumber) from FactResellerSales join DimProduct on DimProduct.ProductKey=FactResellerSales.ProductKey where ListPrice>1000;
+
+4.select DimReseller.ResellerName from DimReseller join FactResellerSales on DimReseller.ResellerKey=FactResellerSales.ResellerKey where FactResellerSales.Freight+FactResellerSales.TaxAmt+FactResellerSales.SalesAmount>100000;
+
+5.SELECT COUNT(FactResellerSales.OrderQuantity) ,DimReseller.ResellerName , DimProduct.EnglishProductName FROM DimReseller JOIN FactResellerSales ON 
+DimReseller.ResellerKey = FactResellerSales.ResellerKey JOIN DimProduct ON DimProduct.ProductKey = FactResellerSales.ProductKey 
+WHERE DimReseller.ResellerName = 'Riding Cycle' GROUP BY DimProduct.ProductKey, DimReseller.ResellerName , DimProduct.EnglishProductName ;
+
+6.select unitprice,salesordernumber,OrderQuantity from FactResellerSales where OrderQuantity=1;
+
+7.select distinct(DimProduct.EnglishProductName),DimReseller.ResellerName from DimReseller join FactResellerSales on DimReseller.ResellerKey=FactResellerSales.ResellerKey join DimProduct on DimProduct.ProductKey=FactResellerSales.ProductKey where DimProduct.ModelName='Racing Socks';
+
+8.select * from DimProduct where ProductKey=736;
+
+9.select distinct(DimReseller.ResellerName),DimProduct.Weight,FactResellerSales.SalesAmount from DimProduct join FactResellerSales on DimProduct.ProductKey=FactResellerSales.ProductKey join DimReseller on FactResellerSales.ResellerKey=DimReseller.ResellerKey group by DimProduct.Weight,FactResellerSales.SalesAmount,DimReseller.ResellerName order by FactResellerSales.SalesAmount desc;
+
+
+
+10.select count( distinct dimproductsubcategory.englishproductsubcategoryname) from DimProductSubcategory join DimProduct on DimProductSubcategory.ProductSubcategoryKey=DimProduct.ProductSubcategoryKey join FactResellerSales on DimProduct.ProductKey=FactResellerSales.ProductKey join DimReseller on FactResellerSales.ResellerKey=DimReseller.ResellerKey join DimGeography on DimReseller.GeographyKey=DimGeography.GeographyKey where DimGeography.City='London'; 
+33
+
+
+11.
+
+
+
+12.select FactResellerSales.SalesOrderNumber,FactResellerSales.SalesAmount,
+sum(FactResellerSales.OrderQuantity*FactResellerSales.UnitPrice),sum(FactResellerSales.UnitPrice*DimProduct.ListPrice) from DimProduct
+join FactResellerSales on DimProduct.ProductKey=FactResellerSales.ProductKey 
+group by FactResellerSales.SalesOrderNumber,FactResellerSales.SalesAmount ;
+
+
+13.
+
+
+14.
+
