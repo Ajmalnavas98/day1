@@ -1,0 +1,194 @@
+a <- 4
+print(a) 
+b <- 4 
+c <- a+b 
+print(c)
+d <- sum(6+5)
+
+Add <- function(a,b,c)
+{
+  result<- a+b+c 
+  print(result)
+}
+
+Add(1,2,3) 
+
+library()
+methods.libPaths()
+search()
+
+help.start()
+help(foo)
+?foo
+example(foo)
+
+
+
+
+
+?read.csv
+
+data <- read.table("C:/Users/haritha/Downloads/annual-enterprise-survey-2018-financial-year-provisional-size-bands-csv.csv", header =T , sep=",") ;
+data
+
+
+sapply(data,mean,na.rm=T)
+attach(data)
+
+?csv
+
+getwd()
+ls()
+
+
+history()
+
+savehistory(file="myfile")
+
+a<- c(1,22,2.5,-8)
+print(a)
+b <- c("hello","world")
+print(b)
+
+cells <- matrix(1:20,nrow = 5 , ncol = 4 )
+rnames <- c("r1","r2","r3","r4","r5");
+cnames <- c("c1","c2","c3","c4") ;
+m <- matrix(cells,nrow = 5 , ncol = 4 ,byrow = T ,dimnames=list(rnames,cnames)) ;
+print(m) ;
+m[4,]
+m[,2]
+m[1:4,1:2]
+
+id <- c(1,2,3,4) ;
+name <- c("Ajay","john","krishna",NA) ;
+age <- c(16,19,22,23) ;
+
+df <- data.frame(id,name,age) ;
+df
+
+
+df[1:3]
+df[c("id","age")]
+df$name
+
+
+l <- list(name ="Ajmal",initial = "A", age =21 )
+l
+
+l[["name"]]
+l[[3]]
+
+gender <- c(rep("male",20), rep("female", 30))
+gender <- factor(gender)
+
+df<- data.frame(id = number(0),name = character(0) , age = number(0))
+df <-edit(df)
+
+
+
+
+ls() ;
+names(df)
+
+head(df, n=1) # display first several rows
+tail(df , n =2 ) # display last rows
+dim(df) # no of cols and rows
+
+levels(df)
+str(df)  
+
+df
+
+library(Hmisc)
+
+ g<- c(1.2,3,4,-8,NA) 
+is.na(g) 
+
+mean(g)
+mean(g,na.rm=T)
+
+v <- c(NULL,5,6,7,NULL)
+mean(v)
+
+ourdate <- as.Date(c("1998-07-22","1997-08-24")) ;
+date <- ourdate[1] - ourdate[2] ;
+date
+
+our1 <- as.Date(c("2019-12-24","2019-03-18")) ;
+datediff <- our1[1] - our1[2] ;
+datediff
+
+today <- Sys.Date() 
+date() 
+format(today,format="%d %b %y") 
+
+variable <- 5 ;
+variable
+
+# rename variable
+
+library(reshape)
+var <- rename(var,c(oldname=""))
+
+x <- 5.6
+y <- 2
+x%%y # modulus
+x%/%y # division
+x*y
+x+y
+
+e <- c(1:20) # series numbers(continous)
+e[(e<7) | (e>17)] # displaying the values based on the condition
+e > 17 # return true or false
+e[e > 5 &  e>3]
+
+abs(e)
+sqrt(x) 
+x <- 5.677
+ceiling(x)
+floor(x)
+log10(x)
+log(x)
+cos(x)
+x <- 5.677
+round(x,digits = 2 )
+
+if( x > 2 ) x+2 else x-2 
+if( x < 8) ceiling(x)
+
+
+
+ myfunction <- function(a,b) {
+  if( a > b )
+        a = a-b ;
+          else
+             a = b-a ;
+          
+          return(a) ;
+               }
+result <- myfunction(6,3) 
+
+df
+
+id <- c('1','4','5') ;
+name <- c("rosy","priya","anna") ;
+age <-  c(11,12,13) ;
+
+ddf <- data.frame(id,name,age) ;
+ddf
+
+df
+ddf
+total <- merge(df,ddf,by="id") ;
+total
+tot <- rbind(df,ddf)
+tot
+
+seq(1,10,2);
+rep(1:4,2)
+
+t(ddf) 
+t(df)
+
+r <- 5 
+
